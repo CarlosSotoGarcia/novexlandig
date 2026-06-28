@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — Novex Dynamics</title>
+  <meta name="description" content="Somos Novex Dynamics, un software studio joven y comprometido que convierte ideas en productos digitales reales. Conoce nuestra historia, valores y visión." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 950:'#050d1a', 900:'#071222', 800:'#0a1a30', 700:'#0d2240' }
+          },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .grad-text {
+      background: linear-gradient(135deg,#fff 0%,#22d3ee 55%,#60a5fa 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .grad-text-blue {
+      background: linear-gradient(90deg,#60a5fa,#22d3ee);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .nav-link { position:relative; }
+    .nav-link::after {
+      content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px;
+      background:linear-gradient(90deg,#3b82f6,#22d3ee); transition:width .3s ease;
+    }
+    .nav-link:hover::after { width:100%; }
+  </style>
+</head>
+<body class="bg-navy-950 text-white font-sans antialiased overflow-x-hidden">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy-950/90 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 select-none flex-shrink-0">
+        <img src="assets/NovexNegro.png" alt="NX" class="h-10 w-auto">
+        <div class="flex flex-col leading-none">
+          <span class="text-white text-xl font-black tracking-tight">Novex</span>
+          <span class="text-blue-400 text-xs font-semibold tracking-widest uppercase mt-0.5">Dynamics</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="index.html#plataformas" class="nav-link px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">Plataformas</a>
+        <a href="nosotros.html"          class="nav-link px-4 py-2 text-sm text-white font-medium transition-colors">Nosotros</a>
+        <a href="index.html#contacto"    class="ml-3 px-5 py-2 rounded-lg text-sm font-semibold bg-blue-500 hover:bg-blue-400 text-white transition-all duration-200 shadow-lg shadow-blue-500/30 hover:-translate-y-0.5">Contacto</a>
+      </div>
+      <a href="index.html" class="md:hidden text-gray-400 hover:text-white text-sm flex items-center gap-1.5 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Inicio
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-32 pb-20 px-4 sm:px-6 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl" style="background:radial-gradient(circle,rgba(59,130,246,.07) 0%,transparent 70%)"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl"  style="background:radial-gradient(circle,rgba(34,211,238,.05) 0%,transparent 70%)"></div>
+  </div>
+  <div class="relative max-w-4xl mx-auto text-center">
+    <span class="text-xs font-semibold tracking-widest uppercase text-cyan-500 mb-4 block">Quiénes somos</span>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+      No somos solo un<br><span class="grad-text">equipo de desarrollo.</span><br>Somos tus socios.
+    </h1>
+    <p class="text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed">
+      Novex Dynamics nació con una convicción simple: cada industria merece una solución digital hecha a su medida, construida con calidad real y entregada por personas que entienden tu negocio.
+    </p>
+  </div>
+</section>
+
+<!-- HISTORIA -->
+<section class="py-20 px-4 sm:px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="text-xs font-semibold tracking-widest uppercase text-blue-400 mb-4 block">Nuestra historia</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
+        Empezamos con una pregunta: <span class="grad-text-blue">¿por qué no existe esto todavía?</span>
+      </h2>
+      <p class="text-gray-400 leading-relaxed mb-5">
+        Novex Dynamics surgió de la frustración de ver negocios e industrias enteras operando con procesos manuales, hojas de cálculo o software genérico que no encajaba con su realidad.
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-5">
+        Decidimos no quejarnos. Decidimos construir. Comenzamos con <strong class="text-white">Zity</strong>, una plataforma para la gestión inteligente de condominios, porque vimos de primera mano cómo administradoras y residentes perdían tiempo en procesos que podían automatizarse.
+      </p>
+      <p class="text-gray-400 leading-relaxed">
+        Hoy esa misma energía nos mueve a seguir creando. Cada producto que lanzamos parte del mismo lugar: un problema real que alguien necesita resolver, y nosotros con las herramientas para hacerlo.
+      </p>
+    </div>
+    <!-- Timeline visual -->
+    <div class="space-y-4">
+      <div class="flex gap-4 p-5 rounded-2xl bg-navy-800/60 border border-white/5">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center flex-shrink-0">
+            <span class="text-blue-400 text-xs font-bold">1</span>
+          </div>
+          <div class="w-px flex-1 bg-white/5 mt-2"></div>
+        </div>
+        <div class="pb-2">
+          <p class="text-white font-semibold text-sm mb-1">Identificar el problema real</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Antes de escribir una línea de código, entendemos el negocio, el usuario y el contexto.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 p-5 rounded-2xl bg-navy-800/60 border border-white/5">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center flex-shrink-0">
+            <span class="text-cyan-400 text-xs font-bold">2</span>
+          </div>
+          <div class="w-px flex-1 bg-white/5 mt-2"></div>
+        </div>
+        <div class="pb-2">
+          <p class="text-white font-semibold text-sm mb-1">Diseñar con propósito</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Cada interfaz y cada flujo se piensa para que el usuario logre su objetivo en el menor tiempo posible.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 p-5 rounded-2xl bg-navy-800/60 border border-white/5">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center flex-shrink-0">
+            <span class="text-purple-400 text-xs font-bold">3</span>
+          </div>
+          <div class="w-px flex-1 bg-white/5 mt-2"></div>
+        </div>
+        <div class="pb-2">
+          <p class="text-white font-semibold text-sm mb-1">Construir con IA y calidad</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Usamos inteligencia artificial para entregar más rápido sin sacrificar robustez ni seguridad.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 p-5 rounded-2xl bg-navy-800/60 border border-white/5">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center flex-shrink-0">
+            <span class="text-green-400 text-xs font-bold">4</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-white font-semibold text-sm mb-1">Acompañar después del lanzamiento</p>
+          <p class="text-gray-500 text-xs leading-relaxed">No desaparecemos. Mejoramos, actualizamos y escalamos junto contigo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="py-20 px-4 sm:px-6 bg-navy-900 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs font-semibold tracking-widest uppercase text-cyan-500 mb-3 block">Lo que nos define</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Valores que no son decorativos</h2>
+      <p class="text-gray-400 max-w-xl mx-auto">No los pusimos en una pared — los aplicamos en cada decisión de diseño, desarrollo y relación con el cliente.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="p-7 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-blue-500/25 transition-colors duration-300 group">
+        <div class="w-11 h-11 rounded-xl bg-blue-500/15 flex items-center justify-center mb-5 group-hover:bg-blue-500/25 transition-colors">
+          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Calidad sin negociar</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Preferimos entregar tarde que entregar mal. Cada funcionalidad que sale tiene pruebas, revisión y orgullo detrás.</p>
+      </div>
+
+      <div class="p-7 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-cyan-500/25 transition-colors duration-300 group">
+        <div class="w-11 h-11 rounded-xl bg-cyan-500/15 flex items-center justify-center mb-5 group-hover:bg-cyan-500/25 transition-colors">
+          <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/></svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Empatía con el cliente</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Escuchamos de verdad. Tu problema es nuestro problema, y no paramos hasta entender exactamente qué necesitas — no lo que creemos que necesitas.</p>
+      </div>
+
+      <div class="p-7 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-purple-500/25 transition-colors duration-300 group">
+        <div class="w-11 h-11 rounded-xl bg-purple-500/15 flex items-center justify-center mb-5 group-hover:bg-purple-500/25 transition-colors">
+          <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Velocidad con propósito</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Nos movemos rápido porque usamos IA y metodologías modernas, pero cada decisión es deliberada. Rápido no significa apresurado.</p>
+      </div>
+
+      <div class="p-7 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-green-500/25 transition-colors duration-300 group">
+        <div class="w-11 h-11 rounded-xl bg-green-500/15 flex items-center justify-center mb-5 group-hover:bg-green-500/25 transition-colors">
+          <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253"/></svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Transparencia total</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Sin letra chica, sin sorpresas. Sabrás el estado de tu proyecto en todo momento y hablarás siempre con quien lo construye.</p>
+      </div>
+
+      <div class="p-7 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-yellow-500/25 transition-colors duration-300 group">
+        <div class="w-11 h-11 rounded-xl bg-yellow-500/15 flex items-center justify-center mb-5 group-hover:bg-yellow-500/25 transition-colors">
+          <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Innovación aplicada</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">No usamos tecnología nueva por moda. La adoptamos cuando resuelve un problema real mejor que lo que existía antes.</p>
+      </div>
+
+      <div class="p-7 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-orange-500/25 transition-colors duration-300 group">
+        <div class="w-11 h-11 rounded-xl bg-orange-500/15 flex items-center justify-center mb-5 group-hover:bg-orange-500/25 transition-colors">
+          <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Compromiso a largo plazo</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">No somos freelancers que desaparecen. Somos un equipo que quiere ver tu negocio crecer y estar ahí cuando necesites la siguiente versión.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TU IDEA -->
+<section class="py-20 px-4 sm:px-6 border-t border-white/5 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] blur-3xl"
+         style="background:radial-gradient(ellipse,rgba(59,130,246,.06) 0%,transparent 70%)"></div>
+  </div>
+  <div class="relative max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-semibold tracking-widest uppercase text-cyan-500 mb-3 block">¿Tienes una idea?</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">La recibimos. La analizamos.<br>La construimos.</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        Si tienes un problema en tu industria que crees que el software podría resolver — cuéntanos. No importa si es una idea en servilleta o un requerimiento técnico detallado. Nosotros tomamos eso y lo convertimos en un producto real.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+      <div class="text-center p-6 rounded-2xl bg-navy-800/50 border border-white/5">
+        <div class="text-3xl font-black grad-text-blue mb-2">01</div>
+        <h4 class="text-white font-semibold mb-2">Cuéntanos tu idea</h4>
+        <p class="text-gray-500 text-sm">Una llamada, un mensaje de WhatsApp, un correo. Como prefieras. Sin formularios eternos.</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl bg-navy-800/50 border border-white/5">
+        <div class="text-3xl font-black grad-text-blue mb-2">02</div>
+        <h4 class="text-white font-semibold mb-2">Evaluamos juntos</h4>
+        <p class="text-gray-500 text-sm">Analizamos viabilidad, alcance y tecnología. Te damos un diagnóstico honesto, sin compromisos.</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl bg-navy-800/50 border border-white/5">
+        <div class="text-3xl font-black grad-text-blue mb-2">03</div>
+        <h4 class="text-white font-semibold mb-2">Construimos y lanzamos</h4>
+        <p class="text-gray-500 text-sm">Con IA, metodologías ágiles y comunicación constante. Tu idea se convierte en producto real.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/524922274835?text=Hola%20Novex%20Dynamics%2C%20tengo%20una%20idea%20que%20me%20gustar%C3%ADa%20explorar%20con%20ustedes."
+         target="_blank" rel="noopener"
+         class="group px-8 py-3.5 rounded-xl font-semibold text-white bg-blue-500 hover:bg-blue-400 transition-all duration-200 shadow-xl shadow-blue-500/25 hover:-translate-y-1 flex items-center gap-2">
+        Compartir mi idea
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <a href="mailto:holanovex@gmail.com?subject=Tengo%20una%20idea%20para%20Novex%20Dynamics"
+         class="px-8 py-3.5 rounded-xl font-semibold text-gray-300 border border-white/15 hover:border-white/30 hover:text-white hover:bg-white/5 transition-all duration-200">
+        Escribir por correo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy-900 border-t border-white/5 py-10 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-600 text-xs">
+    <div class="flex items-center gap-2">
+      <img src="assets/NovexNegro.png" alt="NX" class="h-6 w-auto">
+      <span>© 2026 Novex Dynamics. Todos los derechos reservados.</span>
+    </div>
+    <div class="flex gap-6">
+      <a href="nosotros.html"   class="hover:text-gray-400 transition-colors">Nosotros</a>
+      <a href="privacidad.html" class="hover:text-gray-400 transition-colors">Privacidad</a>
+      <a href="terminos.html"   class="hover:text-gray-400 transition-colors">Términos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
