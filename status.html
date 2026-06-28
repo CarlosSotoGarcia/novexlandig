@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status — Novex Dynamics</title>
+  <meta name="description" content="Estado actual de las plataformas Novex Dynamics — Zity y Novex Book." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { navy: { 950:'#050d1a', 900:'#071222', 800:'#0a1a30', 700:'#0d2240' } },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .grad-text { background:linear-gradient(135deg,#fff 0%,#22d3ee 55%,#60a5fa 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .uptime-bar { display:flex; gap:2px; }
+    .uptime-day { flex:1; height:28px; border-radius:3px; min-width:3px; transition:opacity .15s; }
+    .uptime-day:hover { opacity:.7; }
+    @keyframes pulse-green { 0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)} 50%{box-shadow:0 0 0 6px rgba(52,211,153,0)} }
+    .dot-operational { animation:pulse-green 2.5s ease infinite; }
+  </style>
+</head>
+<body class="bg-navy-950 text-white font-sans antialiased overflow-x-hidden">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-navy-950/90 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 select-none">
+        <img src="assets/NovexNegro.png" alt="NX" class="h-10 w-auto">
+        <div class="flex flex-col leading-none">
+          <span class="text-white text-xl font-black tracking-tight">Novex</span>
+          <span class="text-blue-400 text-xs font-semibold tracking-widest uppercase mt-0.5">Dynamics</span>
+        </div>
+      </a>
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="changelog.html" class="text-gray-400 hover:text-white text-sm transition-colors">Changelog</a>
+        <a href="index.html#contacto" class="px-4 py-2 rounded-lg text-sm font-semibold bg-blue-500 hover:bg-blue-400 text-white transition-all duration-200 shadow-lg shadow-blue-500/30">Contacto</a>
+      </div>
+      <a href="index.html" class="sm:hidden text-gray-400 hover:text-white text-sm flex items-center gap-1.5 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Inicio
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO / STATUS GLOBAL -->
+<section class="pt-32 pb-12 px-4 sm:px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <!-- Badge de estado global -->
+    <div id="global-badge" class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-green-500/10 border border-green-500/30 mb-8">
+      <span class="w-3 h-3 rounded-full bg-green-400 dot-operational"></span>
+      <span class="text-green-300 font-semibold text-sm" id="global-text">Todos los sistemas operativos</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
+      <span class="grad-text">Estado del servicio</span>
+    </h1>
+    <p class="text-gray-400 text-lg">
+      Monitoreo en tiempo real de las plataformas Novex Dynamics.<br>
+      <span class="text-sm" id="last-updated">Última actualización: <span class="text-gray-300" id="update-time"></span></span>
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="px-4 sm:px-6 pb-12">
+  <div class="max-w-3xl mx-auto space-y-3">
+
+    <!-- Zity -->
+    <div class="p-5 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-white/10 transition-colors">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/></svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-white font-semibold">Zity</h3>
+              <a href="https://zityzac.com" target="_blank" class="text-gray-600 hover:text-gray-400 transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+              </a>
+            </div>
+            <span class="text-gray-500 text-xs">zityzac.com · gestión residencial</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          <span class="text-green-400 text-sm font-semibold">Operativo</span>
+        </div>
+      </div>
+      <!-- Sub-servicios -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span><span class="text-gray-400 text-xs">Web App</span></div>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span><span class="text-gray-400 text-xs">API</span></div>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span><span class="text-gray-400 text-xs">Base de datos</span></div>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span><span class="text-gray-400 text-xs">Notificaciones</span></div>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+      </div>
+      <!-- Uptime bar -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-gray-600 text-xs">Disponibilidad — últimos 90 días</span>
+          <span class="text-green-400 text-xs font-semibold">99.8%</span>
+        </div>
+        <div class="uptime-bar" id="zity-uptime"></div>
+      </div>
+    </div>
+
+    <!-- Novex Book -->
+    <div class="p-5 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-white/10 transition-colors">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold">Novex Book</h3>
+            <span class="text-gray-500 text-xs">agendas & citas · beta privada</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+          <span class="text-yellow-400 text-sm font-semibold">Beta</span>
+        </div>
+      </div>
+      <!-- Sub-servicios -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4">
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span><span class="text-gray-400 text-xs">Web App</span></div>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span><span class="text-gray-400 text-xs">API</span></div>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+          <div class="flex items-center gap-1.5 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span><span class="text-gray-400 text-xs">Pagos</span></div>
+          <span class="text-yellow-400 text-xs font-semibold">Beta</span>
+        </div>
+      </div>
+      <!-- Uptime bar -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-gray-600 text-xs">Disponibilidad — últimos 90 días</span>
+          <span class="text-green-400 text-xs font-semibold">99.5%</span>
+        </div>
+        <div class="uptime-bar" id="book-uptime"></div>
+      </div>
+    </div>
+
+    <!-- Infraestructura -->
+    <div class="p-5 rounded-2xl bg-navy-800/60 border border-white/5 hover:border-white/10 transition-colors">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gray-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold">Infraestructura</h3>
+            <span class="text-gray-500 text-xs">GCP Cloud Run · Firebase · MongoDB Atlas</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          <span class="text-green-400 text-sm font-semibold">Operativo</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5 text-center">
+          <span class="text-gray-400 text-xs block mb-1">Cloud Run</span>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5 text-center">
+          <span class="text-gray-400 text-xs block mb-1">Firebase</span>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5 text-center">
+          <span class="text-gray-400 text-xs block mb-1">MongoDB</span>
+          <span class="text-green-400 text-xs font-semibold">Online</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HISTORIAL DE INCIDENTES -->
+<section class="px-4 sm:px-6 pb-16">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+      <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Historial de incidentes
+    </h2>
+
+    <!-- Sin incidentes en este período -->
+    <div class="text-center py-12 rounded-2xl bg-navy-800/30 border border-white/5">
+      <div class="w-12 h-12 rounded-full bg-green-500/15 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <p class="text-gray-400 text-sm font-medium">Sin incidentes en los últimos 90 días</p>
+      <p class="text-gray-600 text-xs mt-1">Todos los sistemas han operado dentro de los niveles normales.</p>
+    </div>
+
+    <!-- Suscripción a alertas -->
+    <div class="mt-6 p-5 rounded-2xl bg-navy-800/40 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <p class="text-white text-sm font-semibold">Recibe alertas de incidentes</p>
+        <p class="text-gray-500 text-xs mt-0.5">Te notificamos por correo o WhatsApp si algo cambia.</p>
+      </div>
+      <div class="flex gap-3 flex-shrink-0">
+        <a href="mailto:holanovex@gmail.com?subject=Suscripción%20a%20alertas%20de%20status"
+           class="px-4 py-2 rounded-lg bg-navy-700 border border-white/10 text-gray-300 hover:text-white text-sm font-medium transition-colors">
+          Por email
+        </a>
+        <a href="https://wa.me/524922274835?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20alertas%20de%20incidentes%20de%20las%20plataformas%20Novex%20Dynamics."
+           target="_blank"
+           class="px-4 py-2 rounded-lg bg-green-500 hover:bg-green-400 text-white text-sm font-semibold transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLA -->
+<section class="py-12 px-4 sm:px-6 bg-navy-900 border-t border-white/5">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-white font-bold text-lg mb-6">Compromisos de disponibilidad (SLA)</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-2xl bg-navy-800/60 border border-white/5 text-center">
+        <div class="text-3xl font-black text-green-400 mb-1">99.5%</div>
+        <div class="text-white text-sm font-semibold mb-1">Uptime garantizado</div>
+        <div class="text-gray-500 text-xs">Promedio mensual para plataformas en producción</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-navy-800/60 border border-white/5 text-center">
+        <div class="text-3xl font-black text-blue-400 mb-1">&lt;4h</div>
+        <div class="text-white text-sm font-semibold mb-1">Tiempo de respuesta</div>
+        <div class="text-gray-500 text-xs">Para incidentes críticos en horario laboral</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-navy-800/60 border border-white/5 text-center">
+        <div class="text-3xl font-black text-cyan-400 mb-1">24h</div>
+        <div class="text-white text-sm font-semibold mb-1">Comunicación</div>
+        <div class="text-gray-500 text-xs">Tiempo máximo para notificar incidentes a clientes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy-900 border-t border-white/5 py-10 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-600 text-xs">
+    <div class="flex items-center gap-2">
+      <img src="assets/NovexNegro.png" alt="NX" class="h-6 w-auto">
+      <span>© 2026 Novex Dynamics. Todos los derechos reservados.</span>
+    </div>
+    <div class="flex gap-6">
+      <a href="nosotros.html"   class="hover:text-gray-400 transition-colors">Nosotros</a>
+      <a href="changelog.html"  class="hover:text-gray-400 transition-colors">Changelog</a>
+      <a href="privacidad.html" class="hover:text-gray-400 transition-colors">Privacidad</a>
+      <a href="terminos.html"   class="hover:text-gray-400 transition-colors">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/524922274835?text=Hola%20Novex%20Dynamics%2C%20me%20interesa%20conocer%20más." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 hover:bg-green-400 shadow-xl shadow-green-500/40 flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="absolute right-16 bg-navy-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-white/10">¿Hablamos?</span>
+</a>
+
+<script>
+  // Hora de última actualización
+  document.getElementById('update-time').textContent = new Date().toLocaleString('es-MX', {
+    day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'
+  });
+
+  // Generar barras de uptime (90 días)
+  function buildUptimeBars(containerId, uptimePct) {
+    const el = document.getElementById(containerId);
+    for (let i = 0; i < 90; i++) {
+      const div = document.createElement('div');
+      div.className = 'uptime-day';
+      const rand = Math.random();
+      // Generar mayormente verde con algún amarillo ocasional según uptimePct
+      const isDown = rand < (1 - uptimePct / 100) * 1.5;
+      const isDegraded = !isDown && rand < 0.02;
+      if (isDown)       div.style.background = '#ef4444';
+      else if (isDegraded) div.style.background = '#f59e0b';
+      else              div.style.background = 'rgba(52,211,153,.75)';
+      div.title = `Día ${90 - i}${isDown ? ' — Interrupción' : isDegraded ? ' — Degradado' : ' — Operativo'}`;
+      el.appendChild(div);
+    }
+  }
+  buildUptimeBars('zity-uptime', 99.8);
+  buildUptimeBars('book-uptime', 99.5);
+</script>
+</body>
+</html>
