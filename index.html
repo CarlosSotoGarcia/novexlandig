@@ -90,23 +90,13 @@
     <div class="flex items-center justify-between h-16 lg:h-18">
 
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group flex-shrink-0">
-        <div class="relative">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <rect width="36" height="36" rx="8" fill="url(#logoGrad)"/>
-            <path d="M8 26 L14 10 L20 20 L26 10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="27" cy="26" r="3" fill="white" opacity=".9"/>
-            <defs>
-              <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36">
-                <stop offset="0%" stop-color="#1d4ed8"/>
-                <stop offset="100%" stop-color="#06b6d4"/>
-              </linearGradient>
-            </defs>
-          </svg>
+      <a href="#" class="flex items-center gap-3 select-none flex-shrink-0">
+        <div class="bg-white rounded-xl p-1.5 flex items-center justify-center shadow-md shadow-blue-500/20">
+          <img src="assets/Novex.png" alt="NX" class="h-7 w-auto">
         </div>
-        <div class="leading-tight">
-          <span class="text-white font-bold text-base tracking-tight block">Novex</span>
-          <span class="text-cyan-400 font-semibold text-xs tracking-widest uppercase">Dynamics</span>
+        <div class="flex flex-col leading-none">
+          <span class="text-white text-xl font-black tracking-tight">Novex</span>
+          <span class="text-blue-400 text-xs font-semibold tracking-widest uppercase mt-0.5">Dynamics</span>
         </div>
       </a>
 
@@ -578,22 +568,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <!-- Brand -->
       <div class="lg:col-span-1">
-        <div class="flex items-center gap-3 mb-4">
-          <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-            <rect width="36" height="36" rx="8" fill="url(#fLogoGrad)"/>
-            <path d="M8 26 L14 10 L20 20 L26 10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="27" cy="26" r="3" fill="white" opacity=".9"/>
-            <defs>
-              <linearGradient id="fLogoGrad" x1="0" y1="0" x2="36" y2="36">
-                <stop offset="0%" stop-color="#1d4ed8"/>
-                <stop offset="100%" stop-color="#06b6d4"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div>
-            <span class="text-white font-bold text-sm block">Novex Dynamics</span>
-            <span class="text-gray-500 text-xs">Software · SaaS · 2025</span>
+        <div class="mb-4 select-none">
+          <div class="bg-white rounded-xl px-4 py-2.5 inline-flex items-center shadow-md shadow-blue-500/10">
+            <img src="assets/NovexFull.png" alt="Novex Dynamics" class="h-8 w-auto">
           </div>
+          <p class="text-gray-500 text-xs mt-2">Software · SaaS · 2025</p>
         </div>
         <p class="text-gray-500 text-sm leading-relaxed">Ecosistemas integrados para comunidades y negocios.</p>
       </div>
@@ -657,61 +636,47 @@
      JAVASCRIPT
 ════════════════════════════════════════════ -->
 <script>
-// ── Network canvas animation ──
+// ── Network canvas — static, dense ──
 (function() {
   const canvas = document.getElementById('networkCanvas');
   const ctx    = canvas.getContext('2d');
-  let nodes = [], animId;
 
-  const COLORS = {
-    node:   'rgba(59,130,246,',
-    line:   'rgba(59,130,246,',
-    nodeC:  'rgba(34,211,238,',
-    lineC:  'rgba(34,211,238,',
-  };
+  function nodeCount() {
+    return Math.floor((canvas.width * canvas.height) / 8000);
+  }
 
-  function resize() {
+  function build() {
     canvas.width  = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-  }
 
-  function initNodes(n) {
-    nodes = [];
+    const n     = nodeCount();
+    const nodes = [];
     for (let i = 0; i < n; i++) {
       nodes.push({
-        x:  Math.random() * canvas.width,
-        y:  Math.random() * canvas.height,
-        vx: (Math.random() - .5) * .4,
-        vy: (Math.random() - .5) * .4,
-        r:  Math.random() * 2 + 1,
-        cyan: Math.random() < .25,
+        x:    Math.random() * canvas.width,
+        y:    Math.random() * canvas.height,
+        r:    Math.random() * 1.8 + 0.8,
+        cyan: Math.random() < .28,
       });
     }
-  }
 
-  function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Move nodes
-    for (const n of nodes) {
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
-      if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
-    }
-
-    // Draw lines
+    // Lines
+    const MAX_DIST = 160;
     for (let i = 0; i < nodes.length; i++) {
-      for (let j = i+1; j < nodes.length; j++) {
+      for (let j = i + 1; j < nodes.length; j++) {
         const a = nodes[i], b = nodes[j];
         const dx = a.x - b.x, dy = a.y - b.y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 140) {
-          const alpha = (1 - dist/140) * .35;
-          const color = (a.cyan || b.cyan) ? COLORS.lineC : COLORS.line;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * .4;
+          const color = (a.cyan || b.cyan)
+            ? `rgba(34,211,238,${alpha})`
+            : `rgba(59,130,246,${alpha})`;
           ctx.beginPath();
-          ctx.strokeStyle = color + alpha + ')';
-          ctx.lineWidth = .8;
+          ctx.strokeStyle = color;
+          ctx.lineWidth   = .7;
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
           ctx.stroke();
@@ -719,28 +684,19 @@
       }
     }
 
-    // Draw nodes
-    for (const n of nodes) {
-      const color = n.cyan ? COLORS.nodeC : COLORS.node;
+    // Nodes
+    for (const nd of nodes) {
       ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
-      ctx.fillStyle = color + '0.7)';
+      ctx.arc(nd.x, nd.y, nd.r, 0, Math.PI * 2);
+      ctx.fillStyle = nd.cyan
+        ? 'rgba(34,211,238,0.75)'
+        : 'rgba(59,130,246,0.75)';
       ctx.fill();
     }
-
-    animId = requestAnimationFrame(draw);
   }
 
-  window.addEventListener('resize', () => {
-    resize();
-    cancelAnimationFrame(animId);
-    initNodes(65);
-    draw();
-  });
-
-  resize();
-  initNodes(65);
-  draw();
+  build();
+  window.addEventListener('resize', build);
 })();
 
 // ── Navbar scroll effect ──
